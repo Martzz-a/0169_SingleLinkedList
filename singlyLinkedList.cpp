@@ -58,4 +58,9 @@ public:
         nodeBaru->next = current;
         previous->next = nodeBaru;
     }
+
+    bool listEmpety()
+    {
+        return (START == NULL);
+    }
 };
