@@ -112,3 +112,101 @@ public:
         }
     }
 };
+
+int main()
+{
+    LinkedList mhs;
+    int nim;
+    char ch;
+    do
+    {
+        cout << endl
+             << "Menu";
+        cout << endl
+             << "1. Menambahkan data kedalam list" << endl;
+        cout << "2. Menghapus data dari dalam list" << endl;
+        cout << "3. Menampilkan semua data didalam list" << endl;
+        cout << "4. Menampilkan semua data didalam list secara terbalik" << endl;
+        cout << "5. Mencari data dalam list" << endl;
+        cout << "6. Keluar" << endl;
+        cout << endl
+             << "Nasukkan pilihan (1-5): ";
+        cin >> ch;
+
+        switch (ch)
+        {
+        case '1':
+        {
+            mhs.addNode();
+        }
+        break;
+
+        case '2':
+        {
+            if (mhs.listEmpety())
+            {
+                cout << endl
+                     << "List Kosong" << endl;
+                break;
+            }
+
+            cout << endl
+                 << "\nMasukkan no mahasiswa yang akan dihapus: ";
+            cin >> nim;
+
+            if (mhs.delNode(nim) == false)
+                cout << endl
+                     << "Data tidak ditemukan" << endl;
+            else
+                cout << endl;
+                cout << "Data dengan nomor mahasiswa " << nim << "berhasil dihapus" << endl;
+        }
+        break;
+
+        case '3':
+        {
+            mhs.traverse();
+        }
+        break;
+
+        case '4':
+        {
+            if (mhs.listEmpety() == true)
+            {
+                cout << "\nList Kosong\n";
+                break;
+            }
+            
+            Node *previous, *current;
+            cout << endl;
+            cout << "Masukkan no mahsiswa yang dicari : ";
+            cin >> nim;
+
+            if (mhs.Search(nim, &previous, &current) == false)
+            {    cout << endl
+                     << "Data tidak ditemukan" << endl;
+            }
+            else
+            {
+                cout << endl
+                     << "Data ditemukan" << endl;
+                cout << "\nNo Mahasiswa: " << current->noMhs << endl;
+                cout << "\n";
+            }
+        }
+        break;
+
+        case '5':
+        {
+        }
+        break;
+
+        default:
+        {
+            cout << "Pilihan salah!" << endl;
+        }
+        break;
+        }
+    } while (ch != '5');
+    
+}
